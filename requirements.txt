@@ -1,0 +1,11 @@
+deta
+fastapi
+uvicorn
+sqlalchemy
+aiomysql
+pymysql
+mysql.connector
+alembic
+python-dotenv
+datetime
+pandas
