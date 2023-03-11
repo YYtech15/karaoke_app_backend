@@ -2,7 +2,7 @@ import pandas as pd
 from database.mysql_client import MySQLClient
 from datetime import datetime
 
-music_data = pd.read_csv("./test/data/music.csv").values.tolist()
+music_data = pd.read_csv("./database/init_data/music.csv").values.tolist()
 
 client = MySQLClient()
 mcc = None
