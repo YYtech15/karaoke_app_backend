@@ -11,8 +11,9 @@ try:
     mcc = client.get_connection()
     cursor = mcc.cursor()
     # レコードを挿入
-    sql = "INSERT INTO `musics` (`title`, `singer`,`level`, `created_at`) VALUES (%s, %s, %s, %s)"
-    records = [(row[0], row[1], row[2], datetime.now()) for row in music_data]
+    sql = "INSERT INTO `musics` (`title`, `singer`,`level`, `created_at`, `updated_at`) VALUES (%s, %s, %s, %s, %s)"
+    records = [(row[0], row[1], row[2], datetime.now(), datetime.now())
+               for row in music_data]
     cursor.executemany(sql, records)
     # コミットしてトランザクション実行
     mcc.commit()

@@ -9,6 +9,17 @@ class Music(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(256), index=True)
-    singer = Column(String(256))
+    singer = Column(String(256), index=True)
     level = Column(String(2), index=True)
     created_at = Column(DateTime, default=datetime.now(), nullable=False)
+    updated_at = Column(DateTime, default=datetime.now(), nullable=False)
+
+    url = relationship("Url", back_populates="music")
+
+class Url(Base):
+    __tablename__ = "Urls"
+
+    id = Column(Integer, ForeignKey("musics.id"), primary_key=True)
+    url = Column(String(256), index=True)
+
+    music = relationship("Music", back_populates="url")
