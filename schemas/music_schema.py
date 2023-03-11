@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field
 
 class MusicBase(BaseModel):
     title: str = Field(None, example="イマジネーション")
-    artist: str = Field(None, example="SPYAIR")
-    level: str = Field("レベル1",description="level1")
+    singer: str = Field(None, example="SPYAIR")
+    level: str = Field("1",description="level1")
 
 class Music(MusicBase):
     id: int
