@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import music_router, user_router
-from schemas import music_schema, user_schema
+from routers import music_router, user_router, score_router
 
 app = FastAPI(
     title='カラオケApp',
@@ -9,6 +8,7 @@ app = FastAPI(
 )
 app.include_router(music_router.router)
 app.include_router(user_router.router)
+app.include_router(score_router.router)
 
 origins = [
     "http://localhost:8080",
@@ -18,6 +18,7 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
